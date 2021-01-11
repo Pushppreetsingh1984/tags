@@ -1,16 +1,19 @@
 ---
 - hosts: all
+  become: yes
   tasks:
           - name: install samba
             yum:
               name: samba
               state: installed
+            tags: [never, alpha]
           
 
-          - name: install samba
+          - name: install httpd
             yum:
-              name: smb
+              name: httpd
               state: installed
+            tags: [never, beta]
             
 
 ...
